@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     res.send(fileNames);
 })
 
-app.post("/", (req, res, err) => {
+app.post("/time", (req, res, err) => {
     try {
         let today = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
         let [date, time] = today.split(", ");
