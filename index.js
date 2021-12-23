@@ -13,10 +13,10 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res, err) => {
     try {
-        const today = new Date();
-        today.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-        const date = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
-        const time = `${today.getHours()}-${today.getMinutes() < 10 ? "0"+today.getMinutes() : today.getMinutes()}`;
+        let today = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+        let [date, time] = today.split(", ");
+        date = date.split("/").join("-");
+        time = time.split(":").join("-");
         const filename = `${date}_${time}`;
         const filepath = __dirname + `/public/time/${filename}.txt`;
         
