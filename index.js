@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res, err) => {
     try {
         const today = new Date();
+        today.toLocaleString('en-IN', { timeZone: 'Asia/Calcutta' });
         const date = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
         const time = `${today.getHours()}-${today.getMinutes() < 10 ? "0"+today.getMinutes() : today.getMinutes()}`;
         const filename = `${date}_${time}`;
